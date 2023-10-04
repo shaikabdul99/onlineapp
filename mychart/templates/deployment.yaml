@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rvce
+spec:
+  replicas: 3 # Number of desired replicas (adjust as needed)
+  selector:
+    matchLabels:
+      app: rvce
+  template:
+    metadata:
+      labels:
+        app: rvce
+    spec:
+      containers:
+        - name: rvce
+          image: shaikabdul86604/rvce # Replace with your actual Docker image and tag
+          ports:
+            - containerPort: 3000 # Port on which your React app runs inside the container
